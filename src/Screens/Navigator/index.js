@@ -4,20 +4,24 @@ import React from 'react';
 import { Explore } from '..';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import BottomTab from "../../Common/BottomTab";
+import { StatusBar } from 'react-native'
 import { SessionDetail, Profile, CreateSession } from "..";
 const Tab = createBottomTabNavigator();
 
 const MyTabs = () => {
     return (
-        <Tab.Navigator
-            tabBar={({ navigation }) => <BottomTab navigation={navigation} />}
-            screenOptions={{
-                headerShown: false
-            }}
-            initialRouteName="Explore">
-            <Tab.Screen name="Explore" component={Explore} />
-            <Tab.Screen name="Profile" component={Profile} />
-        </Tab.Navigator>
+        <>
+            <StatusBar  backgroundColor={'#fff'} />
+            <Tab.Navigator
+                tabBar={({ navigation }) => <BottomTab navigation={navigation} />}
+                screenOptions={{
+                    headerShown: false
+                }}
+                initialRouteName="Explore">
+                <Tab.Screen name="Explore" component={Explore} />
+                <Tab.Screen name="Profile" component={Profile} />
+            </Tab.Navigator>
+        </>
     );
 }
 

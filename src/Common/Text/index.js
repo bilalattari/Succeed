@@ -8,7 +8,7 @@ const CustomText = ({ children, style, numberOfLines }) => {
 
 const styles = StyleSheet.create({
     textStyle: {
-        fontFamily: Typography.FONT_FAMILY_REGULAR
+        fontFamily: 'AvenirNext-Regular'
     }
 })
 

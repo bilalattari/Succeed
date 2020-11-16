@@ -1,11 +1,11 @@
 import { scaleFont } from './mixins';
 
-// FONT FAMILY
-export const FONT_FAMILY_REGULAR = 'TitilliumWeb-Regular';
-export const FONT_FAMILY_BOLD = 'TitilliumWeb-Bold';
-export const FONT_FAMILY_SEMI_BOLD = 'TitilliumWeb-SemiBold';
-export const FONT_FAMILY_EXTRA_BOLD = 'TitilliumWeb-ExtraBold';
-export const FONT_FAMILY_LIGHT = 'TitilliumWeb-Light';
+// // FONT FAMILY
+// export const FONT_FAMILY_REGULAR = 'TitilliumWeb-Regular';
+// export const FONT_FAMILY_BOLD = 'TitilliumWeb-Bold';
+// export const FONT_FAMILY_SEMI_BOLD = 'TitilliumWeb-SemiBold';
+// export const FONT_FAMILY_EXTRA_BOLD = 'TitilliumWeb-ExtraBold';
+// export const FONT_FAMILY_LIGHT = 'TitilliumWeb-Light';
 
 // FONT WEIGHT
 export const FONT_WEIGHT_REGULAR = '400';

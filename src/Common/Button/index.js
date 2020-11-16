@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     white: { backgroundColor: '#fff', borderWidth: 1, borderColor: Colors.BLUE }
 })
 const textStyles = StyleSheet.create({
-    defaultText: { textAlign: 'center', color: '#000', fontFamily: Typography.FONT_FAMILY_SEMI_BOLD, fontSize: 18 },
+    defaultText: { textAlign: 'center', color: '#000', fontFamily: 'AvenirNext-DemiBold', fontSize: 18 },
     blue: { color: '#fff' },
     white: { color: Colors.BLUE }
 })

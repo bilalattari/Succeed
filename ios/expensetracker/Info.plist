@@ -2,6 +2,20 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>UIAppFonts</key>
+	<array>
+		<string></string>
+	</array>
+	<key>item 0</key>
+	<string>Advantage_Demi.ttf</string>
+	<key>item 1</key>
+	<string>AvenirNextLTPro-Bold.otf</string>
+	<key>item 2</key>
+	<string>AvenirNextLTPro-It.otf</string>
+	<key>item 3</key>
+	<string>AvenirNextLTPro-Regular.otf</string>
+	<key>item 4</key>
+	<string>Optima-DemiBold.otf</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>

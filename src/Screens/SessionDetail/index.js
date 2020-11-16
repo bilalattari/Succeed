@@ -93,7 +93,9 @@ const SessionDetail = ({ navigation }) => {
                                     </View>
                                 </View>
                             </View>
-                            <TouchableOpacity style={styles.profilebtn}>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('Profile')}
+                                style={styles.profilebtn}>
                                 <Text style={styles.profiletxt}>View Profile</Text>
                             </TouchableOpacity>
                         </View>

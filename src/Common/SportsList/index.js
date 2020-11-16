@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, FlatList, Text, TouchableOpacity } from "react-native";
 import { SvgXml } from "react-native-svg";
 
-const SportsList = ({ list }) => {
-    const [active, makeActive] = useState(0)
+const SportsList = ({ list, filterFunction }) => {
     return (
         <FlatList horizontal={true} data={list}
             contentContainerStyle={styles.listcontainer}
@@ -11,8 +10,8 @@ const SportsList = ({ list }) => {
             renderItem={({ item, index }) => {
                 return (
                     <TouchableOpacity key={index}
-                        onPress={() => makeActive(index)}
-                        style={index === active ? styles.active : styles.item}>
+                        onPress={() => filterFunction(index)}
+                        style={item.active ? styles.active : styles.item}>
                         <SvgXml xml={item.icon} />
                         <Text style={styles.txt}>{item.text}</Text>
                     </TouchableOpacity>

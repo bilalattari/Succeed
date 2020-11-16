@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Image, TouchableOpacity, SafeAreaView, StatusBar } from "react-native";
 import { SvgXml } from "react-native-svg";
 import { Text, SportsList, ExploreCard } from "../../Common";
@@ -74,6 +74,14 @@ const cardList = [
 
 ]
 const Explore = ({ navigation }) => {
+    const [filters, setFilters] = useState(list)
+
+    const applyFilter = (index) => {
+        let filterList = filters
+        filterList[index].active = !filterList[index].active
+        setFilters([...filterList]);
+    }
+
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.container}>
@@ -85,7 +93,7 @@ const Explore = ({ navigation }) => {
                     </TouchableOpacity>
                 </View>
                 <View style={styles.listContainer}>
-                    <SportsList navigation={navigation} list={list} />
+                    <SportsList navigation={navigation} filterFunction={(ind) => applyFilter(ind)} list={list} />
                 </View>
 
                 <View style={styles.cardview}>

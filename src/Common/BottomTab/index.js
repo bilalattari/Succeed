@@ -34,7 +34,7 @@ const BottomTab = ({ navigation }) => {
                         {/* <Image style={styles.iconimg} source={require('../../images/bottomnavigationiconcategory.png')} /> */}
                         <SvgXml xml={chaticon} />
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={() => { navigation.navigate('Profile') }} style={styles.bottomicons}>
+                    <TouchableOpacity  style={styles.bottomicons}>
                         {/* <Image style={styles.iconimg} source={require('../../images/bottomnavigationprofileicon.png')} /> */}
                         <SvgXml xml={profileicon} />
                     </TouchableOpacity>

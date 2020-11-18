@@ -2,8 +2,10 @@ import React from "react";
 import { View, StyleSheet, Text, Image, TouchableOpacity, ScrollView, SafeAreaView } from "react-native";
 import { SvgXml } from "react-native-svg";
 import { backarrow, clock, locationicon, shareicon, typeblue, typebluesmall } from "../../Assets/Icons";
-import SportImage from "../../Assets/sportimage.png";
-import Avatar from "../../Assets/avatar.png";
+
+const SportImage = require('../../Assets/sportimage.png')
+const Avatar = require('../../Assets/avatar.png')
+
 const SessionDetail = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>

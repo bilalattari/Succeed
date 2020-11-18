@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import { StyleSheet, FlatList, Text, TouchableOpacity } from "react-native";
 import { SvgXml } from "react-native-svg";
 
-const SportsList = ({ list, filterFunction }) => {
+export interface Props {
+    list?: any;
+    filterFunction?: any;
+    navigation?: any
+}
+
+const SportsList = ({ list, filterFunction }: Props) => {
     return (
         <FlatList horizontal={true} data={list}
             contentContainerStyle={styles.listcontainer}

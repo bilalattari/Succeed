@@ -6,7 +6,7 @@ import { SvgXml } from "react-native-svg";
 
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default TimePicker = () => {
+export default () => {
     const [date, setDate] = useState(new Date());
     const [show, setShow] = useState(false);
 

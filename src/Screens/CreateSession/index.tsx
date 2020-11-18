@@ -1,17 +1,19 @@
 import React, { useState } from "react";
-import { View, StyleSheet, Text, Image, TextInput, SafeAreaView, TouchableOpacity, ScrollView, FlatList } from "react-native";
+import { View, StyleSheet, Text, Image, TextInput, SafeAreaView, TouchableOpacity, ScrollView, FlatList, Alert } from "react-native";
 import { SvgXml } from "react-native-svg";
 import { SportsList, DatePicker, TimePicker } from "../../Common";
 import { locationadd, backarrowblack, downarrow, squash, padal_Icon, pingpong_Icon, tennis_Icon, running_Icon, locationindicator, shareicon, typeblue, typebluesmall } from "../../Assets/Icons";
-import SportImage from "../../Assets/sportimage.png";
-import Avatar from "../../Assets/avatar.png";
-import CheckBox from 'react-native-check-box'
+// import SportImage from "../../Assets/sportimage.png";
+// import Avatar from "../../Assets/avatar.png";
+import CheckBox from 'react-native-check-box';
+
+
 import DropDownPicker from 'react-native-dropdown-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { } from "react-native-safe-area-context";
 
 
-const CreateSession = ({ navigation }) => {
+const CreateSession = ({ navigation }: any) => {
     const [age, setAge] = useState('Example 20 - 40');
     const list = [
         {
@@ -133,7 +135,7 @@ const CreateSession = ({ navigation }) => {
                         dropDownStyle={{ backgroundColor: '#fafafa' }}
                         customArrowDown={() => { return <SvgXml xml={downarrow} /> }}
                         customArrowUp={() => { return <SvgXml xml={downarrow} /> }}
-                        onChangeItem={item => alert(item.value)}
+                        onChangeItem={item => Alert.alert(item.value)}
                     />
 
                     <Text style={styles.subheading}>Level/Skill Requirement</Text>

@@ -2,7 +2,7 @@ import React from "react";
 import { Dimensions, StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 import { bottomtab, exploreicon, chaticon, profileicon, notificationicon, middleicon } from "../../Assets/Icons";
 import { SvgXml } from "react-native-svg";
-import BottomTabBarImage from "../../Assets/bottombar.png";
+const BottomTabBarImage = require("../../Assets/bottombar.png");
 
 
 const BottomTab = ({ navigation }) => {
@@ -10,32 +10,21 @@ const BottomTab = ({ navigation }) => {
     return (
         <View style={styles.main}>
             <Image style={styles.tabimg} source={BottomTabBarImage} />
-            {/* <SvgXml xml={bottomtab} /> */}
-
             <View style={styles.iconcontainer}>
-
                 <View style={styles.twoiconview}>
                     <TouchableOpacity style={styles.bottomicons}>
-                        {/* <Image style={styles.iconimg} source={require('../../images/bottomnavigationstoreicon.png')} /> */}
                         <SvgXml xml={exploreicon} />
-
                     </TouchableOpacity>
                     <TouchableOpacity style={styles.bottomicons}>
-                        {/* <Image style={styles.iconimg} source={require('../../images/bottomnavigationwishlisticon.png')} /> */}
                         <SvgXml xml={notificationicon} />
                     </TouchableOpacity>
                 </View>
-
                 <View style={styles.middleview} />
-
-
                 <View style={styles.twoiconview}>
                     <TouchableOpacity style={styles.bottomicons}>
-                        {/* <Image style={styles.iconimg} source={require('../../images/bottomnavigationiconcategory.png')} /> */}
                         <SvgXml xml={chaticon} />
                     </TouchableOpacity>
-                    <TouchableOpacity  style={styles.bottomicons}>
-                        {/* <Image style={styles.iconimg} source={require('../../images/bottomnavigationprofileicon.png')} /> */}
+                    <TouchableOpacity style={styles.bottomicons}>
                         <SvgXml xml={profileicon} />
                     </TouchableOpacity>
                 </View>

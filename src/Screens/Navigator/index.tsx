@@ -11,12 +11,9 @@ const Tab = createBottomTabNavigator();
 const MyTabs = () => {
     return (
         <>
-            <StatusBar  backgroundColor={'#fff'} />
+            <StatusBar backgroundColor={'#fff'} />
             <Tab.Navigator
                 tabBar={({ navigation }) => <BottomTab navigation={navigation} />}
-                screenOptions={{
-                    headerShown: false
-                }}
                 initialRouteName="Explore">
                 <Tab.Screen name="Explore" component={Explore} />
                 <Tab.Screen name="Profile" component={Profile} />
@@ -35,7 +32,7 @@ const MyTransition = {
         close: TransitionSpecs.TransitionIOSSpec,
     },
     headerStyleInterpolator: HeaderStyleInterpolators.forFade,
-    cardStyleInterpolator: ({ current, next, layouts }) => {
+    cardStyleInterpolator: ({ current, next, layouts }: any) => {
         return {
             cardStyle: {
                 transform: [

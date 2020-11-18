@@ -92,7 +92,7 @@ const Explore = ({ navigation }) => {
                         <SvgXml xml={filter_Icon} />
                     </TouchableOpacity>
                 </View>
-                <View style={styles.listContainer}>
+                <View>
                     <SportsList navigation={navigation} filterFunction={(ind) => applyFilter(ind)} list={list} />
                 </View>
 

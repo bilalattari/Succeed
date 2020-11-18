@@ -6,9 +6,9 @@ import { SvgXml } from "react-native-svg";
 import Touchable from '../Touchable';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
-export default DatePicker = () => {
-    const monthArr= ["January","February","March","April","May","June","July",
-            "August","September","October","November","December"];
+export default () => {
+    const monthArr = ["January", "February", "March", "April", "May", "June", "July",
+        "August", "September", "October", "November", "December"];
     const [date, setDate] = useState(new Date());
     const [show, setShow] = useState(false);
 

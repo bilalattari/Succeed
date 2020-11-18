@@ -2,10 +2,9 @@ import React from "react";
 import { TouchableOpacity, FlatList, StyleSheet, Text, Image, View } from "react-native";
 import { SvgXml } from "react-native-svg";
 import { setting_Icon, wallet, type, clock, } from "../../Assets/Icons";
-import Avatar from "../../Assets/avatar.png";
-import sportimage from "../../Assets/sportimage.png";
-
-const ExploreCard = ({navigation, list }) =>
+const Avatar = require('../../Assets/avatar.png')
+const sportimage = require('../../Assets/sportimage.png')
+const ExploreCard = ({ navigation, list }) =>
     (
         <FlatList data={list} showsVerticalScrollIndicator={false} contentContainerStyle={styles.listcontain} style={styles.list} renderItem={({ item, index }) => {
             return (
@@ -28,7 +27,7 @@ const ExploreCard = ({navigation, list }) =>
                             <SvgXml xml={type} />
                             <Text style={styles.typetxt}>{item.type}</Text>
                         </View>
-                        <TouchableOpacity onPress={()=>{navigation.navigate('SessionDetail')}} style={styles.joinbtn}>
+                        <TouchableOpacity onPress={() => { navigation.navigate('SessionDetail') }} style={styles.joinbtn}>
                             <Text style={styles.btntxt}>Join</Text>
                         </TouchableOpacity>
                         <Text style={styles.sportname}>{item.sportname}</Text>
@@ -59,7 +58,7 @@ const ExploreCard = ({navigation, list }) =>
     )
 
 const styles = StyleSheet.create({
-    list: {  },
+    list: {},
     listcontain: { paddingBottom: 240 },
     item: { marginVertical: 20, },
     name: { fontSize: 16, color: '#363232', fontFamily: 'AvenirNext-Regular' },
@@ -73,14 +72,14 @@ const styles = StyleSheet.create({
     sportimg: { height: 90, backgroundColor: 'grey', width: '100%' },
     joinbtn: { alignSelf: 'flex-end', marginRight: 10, marginTop: -25, justifyContent: 'center', alignItems: 'center', padding: 10, backgroundColor: '#0078FF', width: 80, borderRadius: 10, },
     btntxt: { fontSize: 18, color: '#FFF', fontFamily: 'AvenirNext-Regular' },
-    priceview: { flexDirection: 'row', alignSelf: 'flex-end', marginRight: 10, marginTop:30, },
+    priceview: { flexDirection: 'row', alignSelf: 'flex-end', marginRight: 10, marginTop: 30, },
     price: { fontSize: 15, marginLeft: 5, color: '#363232', fontFamily: 'AvenirNext-Regular' },
     typeview: { position: 'absolute', top: 10, left: 10, flexDirection: 'row', alignItems: 'center', },
     typetxt: { marginLeft: 5, backgroundColor: '#FFFFFF35', paddingHorizontal: 15, paddingVertical: 5, borderRadius: 30, fontSize: 15, color: '#FFF', fontFamily: 'AvenirNext-Regular' },
     bottomview: { alignItems: 'center', padding: 10, marginTop: 10, width: '100%', backgroundColor: '#E4E6ED', flexDirection: 'row', },
     date: { flex: 2, fontSize: 12, color: '#363232', fontFamily: 'AvenirNext-Regular' },
     timeview: { flex: 1.5 },
-    timetxt: {marginTop:5, fontSize: 12, color: '#363232', fontFamily: 'AvenirNext-Regular' },
+    timetxt: { marginTop: 5, fontSize: 12, color: '#363232', fontFamily: 'AvenirNext-Regular' },
     timeheadtxt: { marginLeft: 5, fontSize: 10, color: '#363232', fontFamily: 'AvenirNext-Regular' },
 })
 

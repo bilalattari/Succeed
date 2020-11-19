@@ -62,6 +62,8 @@ const list = [
 const CreateSession = ({ navigation }: any) => {
     const [age, setAge] = useState('Example 20 - 40');
     const [gender, setGender] = useState('');
+    const [address, setAddress] = useState('');
+    const [addressArr, setAddressArr] = useState(['']);
     const [filters, setFilters] = useState(list)
     const [skillLevelReq, setSkillLevelReq] = useState(listSkillAndLevel);
 
@@ -78,6 +80,21 @@ const CreateSession = ({ navigation }: any) => {
         filterList[index].active = !filterList[index].active
         setFilters([...filterList]);
     }
+
+    const onSubmitAddress = (index) => {
+        let allAddress = addressArr;
+        allAddress.push(address);
+        setAddress('');
+        setAddressArr([...allAddress]);
+    }
+
+    const onChangeAddress = (text, index) => {
+        let allAddress = addressArr;
+        allAddress[index] = text;
+        setAddressArr([...allAddress]);
+    }
+    console.log("CreateSession -> addressArr", addressArr)
+
     return (
         <SafeAreaView>
             <ScrollView contentContainerStyle={styles.containcont} showsVerticalScrollIndicator={false} >
@@ -104,12 +121,25 @@ const CreateSession = ({ navigation }: any) => {
                     </View>
                     <TimePicker />
                     <Text style={styles.subheading}>Location</Text>
-                    <TouchableOpacity style={styles.addlocationview}>
-                        <TextInput style={styles.textinputlocation} placeholder={'Add the Session Location'} placeholderTextColor={'#A7A9BC'} />
-                        <View style={styles.iconview}>
-                            <SvgXml xml={locationadd} />
-                        </View>
-                    </TouchableOpacity>
+                    <FlatList
+                        data={addressArr}
+                        renderItem={({ item, index }) => {
+                            return (<TouchableOpacity style={styles.addlocationview}>
+                                <TextInput
+                                    onChangeText={(text) => onChangeAddress(text, index)}
+                                    style={styles.textinputlocation}
+                                    placeholder={'Add the Session Location'}
+                                    placeholderTextColor={'#A7A9BC'}
+                                    onSubmitEditing={onSubmitAddress}
+                                    value={item}
+                                />
+                                <View style={styles.iconview}>
+                                    <SvgXml xml={locationadd} />
+                                </View>
+                            </TouchableOpacity>)
+                        }}
+                    />
+
 
                     <Text style={styles.subheading}>Gender</Text>
 

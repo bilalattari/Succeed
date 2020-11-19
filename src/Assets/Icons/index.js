@@ -25,6 +25,10 @@ import squash from "./squash";
 import calender from "./calender";
 import downarrow from "./downarrow";
 import locationadd from "./locationadd";
+import badge_0 from "./badge_0";
+import badge_1 from "./badge_1";
+import badge_2 from "./badge_2";
+import badge_3 from "./badge_3";
 
 export {
     filter_Icon,
@@ -54,5 +58,9 @@ export {
     calender,
     downarrow,
     locationadd,
+    badge_0,
+    badge_1,
+    badge_2,
+    badge_3,
 };
 

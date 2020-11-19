@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { View, StyleSheet, Text, Image, TextInput, SafeAreaView, TouchableOpacity, ScrollView, FlatList, Alert } from "react-native";
 import { SvgXml } from "react-native-svg";
 import { SportsList, DatePicker, TimePicker } from "../../Common";
-import { locationadd, backarrowblack, downarrow, squash, padal_Icon, pingpong_Icon, tennis_Icon, running_Icon, locationindicator, shareicon, typeblue, typebluesmall } from "../../Assets/Icons";
+import { locationadd, backarrowblack, downarrow, squash, padal_Icon, pingpong_Icon, tennis_Icon, running_Icon, locationindicator, shareicon, typeblue, typebluesmall, badge_0, badge_1, badge_2, badge_3 } from "../../Assets/Icons";
 // import SportImage from "../../Assets/sportimage.png";
 // import Avatar from "../../Assets/avatar.png";
 import CheckBox from 'react-native-check-box';
@@ -10,11 +10,36 @@ import CheckBox from 'react-native-check-box';
 
 import DropDownPicker from 'react-native-dropdown-picker';
 import DateTimePicker from '@react-native-community/datetimepicker';
-import { } from "react-native-safe-area-context";
 
-
+let listSkillAndLevel = [
+    {
+        active: false,
+        icon: badge_3,
+        text: 'Expert'
+    },
+    {
+        active: false,
+        icon: badge_2,
+        text: 'Intermediary'
+    },
+    {
+        active: false,
+        icon: badge_1,
+        text: 'Beginner'
+    },
+    {
+        active: false,
+        icon: badge_0,
+        text: 'First Time'
+    },
+    {
+        active: false,
+        text: 'All'
+    },
+]
 const CreateSession = ({ navigation }: any) => {
     const [age, setAge] = useState('Example 20 - 40');
+    const [skillLevelReq, setSkillLevelReq] = useState(listSkillAndLevel);
     const list = [
         {
             active: true,
@@ -37,6 +62,15 @@ const CreateSession = ({ navigation }: any) => {
             text: 'Running',
         },
     ]
+
+
+
+    const onPressSkillLevel = (item, index) => {
+        let copySkillLevelReq = skillLevelReq;
+        copySkillLevelReq[index].active = !copySkillLevelReq[index].active
+        setSkillLevelReq([...copySkillLevelReq]);
+    }
+
     return (
         <SafeAreaView>
             <ScrollView contentContainerStyle={styles.containcont} showsVerticalScrollIndicator={false} >
@@ -68,7 +102,6 @@ const CreateSession = ({ navigation }: any) => {
 
                     <TouchableOpacity style={styles.addlocationview}>
                         <TextInput style={styles.textinputlocation} placeholder={'Add the Session Location'} placeholderTextColor={'#A7A9BC'} />
-                        {/* <Text style={styles.addloctxt}>Add the Session Location</Text> */}
                         <View style={styles.iconview}>
                             <SvgXml xml={locationadd} />
                         </View>
@@ -135,33 +168,19 @@ const CreateSession = ({ navigation }: any) => {
                         dropDownStyle={{ backgroundColor: '#fafafa' }}
                         customArrowDown={() => { return <SvgXml xml={downarrow} /> }}
                         customArrowUp={() => { return <SvgXml xml={downarrow} /> }}
-                        onChangeItem={item => Alert.alert(item.value)}
                     />
 
                     <Text style={styles.subheading}>Level/Skill Requirement</Text>
 
                     <View style={{ flexWrap: 'wrap', flexDirection: 'row', marginHorizontal: 15, marginVertical: 15 }}>
-
-                        <View style={styles.positionview}>
-                            <SvgXml xml={typebluesmall} />
-                            <Text style={styles.positiontxt}>Expert</Text>
-                        </View>
-                        <View style={styles.positionview}>
-                            <SvgXml xml={typebluesmall} />
-                            <Text style={styles.positiontxt}>Intermediary</Text>
-                        </View>
-                        <View style={styles.positionview}>
-                            <SvgXml xml={typebluesmall} />
-                            <Text style={styles.positiontxt}>Beginner</Text>
-                        </View>
-                        <View style={styles.positionview}>
-                            <SvgXml xml={typebluesmall} />
-                            <Text style={styles.positiontxt}>First Time</Text>
-                        </View>
-                        <View style={styles.positionview}>
-                            <SvgXml xml={typebluesmall} />
-                            <Text style={styles.positiontxt}>All</Text>
-                        </View>
+                        {skillLevelReq.map((item, index) => {
+                            return <TouchableOpacity onPress={() => onPressSkillLevel(item, index)}>
+                                <View style={[styles.positionview, item.active && ({ borderColor: '#0078FF' })]}>
+                                    {item.icon && <SvgXml xml={item.icon} />}
+                                    <Text style={styles.positiontxt}>{item.text}</Text>
+                                </View>
+                            </TouchableOpacity>
+                        })}
                     </View>
 
                     <View style={{ flexDirection: 'row', alignItems: 'center' }}>

@@ -39,6 +39,7 @@ let listSkillAndLevel = [
 ]
 const CreateSession = ({ navigation }: any) => {
     const [age, setAge] = useState('Example 20 - 40');
+    const [gender, setGender] = useState('');
     const [skillLevelReq, setSkillLevelReq] = useState(listSkillAndLevel);
     const list = [
         {
@@ -113,43 +114,31 @@ const CreateSession = ({ navigation }: any) => {
                         <CheckBox
                             checkedCheckBoxColor={'#0078FF'}
                             checkBoxColor={'#A7A9BC'}
-                            onClick={() => { }}
+                            onClick={() => { setGender('male') }}
                             style={{ flex: 1, padding: 10, }}
-                            isChecked={true}
+                            isChecked={gender == 'male' ? true : false}
                             rightText={"Male"}
                         />
                         <CheckBox
                             checkedCheckBoxColor={'#0078FF'}
                             checkBoxColor={'#A7A9BC'}
-                            onClick={() => { }}
+                            onClick={() => { setGender('female') }}
                             style={{ flex: 1, padding: 10, }}
-                            isChecked={true}
+                            isChecked={gender == 'female' ? true : false}
                             rightText={"Female"}
                             rightTextStyle={{ fontSize: 16, color: '#363232' }}
                         />
                         <CheckBox
                             checkedCheckBoxColor={'#0078FF'}
                             checkBoxColor={'#A7A9BC'}
-                            onClick={() => { }}
+                            onClick={() => { setGender('others') }}
                             style={{ flex: 1, padding: 10, }}
-                            isChecked={false}
-                            rightText={"All"}
+                            isChecked={gender == 'others' ? true : false}
+                            rightText={"Others"}
                             rightTextStyle={{ fontSize: 16, color: '#363232' }}
                         />
                     </View>
                     <Text style={styles.subheading}>Age Requirement</Text>
-
-
-                    {/* <View style={{ marginHorizontal: 20, marginVertical: 15, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', }}>
-                    <TouchableOpacity style={{ paddingVertical: 5, borderBottomColor: '#CCCDD5', borderBottomWidth: 1, flex:1, justifyContent: 'space-between', flexDirection: 'row', alignItems: 'center' }}>
-                        <Text style={{ fontSize: 16, color: '#A7A9BC' }}>{'Example: 20 - 40 age'}</Text>
-                        <SvgXml xml={downarrow} />
-                    </TouchableOpacity>
-
-                </View> */}
-
-
-
                     <DropDownPicker
                         items={[
                             { label: '10 - 20', value: '10 - 20' },

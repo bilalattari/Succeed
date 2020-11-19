@@ -37,32 +37,33 @@ let listSkillAndLevel = [
         text: 'All'
     },
 ]
+const list = [
+    {
+        active: true,
+        icon: padal_Icon,
+        text: 'Padel',
+    },
+    {
+        active: false,
+        icon: pingpong_Icon,
+        text: 'Ping Pong',
+    },
+    {
+        active: false,
+        icon: tennis_Icon,
+        text: 'Tennis',
+    },
+    {
+        active: false,
+        icon: running_Icon,
+        text: 'Running',
+    },
+]
 const CreateSession = ({ navigation }: any) => {
     const [age, setAge] = useState('Example 20 - 40');
     const [gender, setGender] = useState('');
+    const [filters, setFilters] = useState(list)
     const [skillLevelReq, setSkillLevelReq] = useState(listSkillAndLevel);
-    const list = [
-        {
-            active: true,
-            icon: padal_Icon,
-            text: 'Padel',
-        },
-        {
-            active: false,
-            icon: pingpong_Icon,
-            text: 'Ping Pong',
-        },
-        {
-            active: false,
-            icon: tennis_Icon,
-            text: 'Tennis',
-        },
-        {
-            active: false,
-            icon: running_Icon,
-            text: 'Running',
-        },
-    ]
 
 
 
@@ -72,6 +73,11 @@ const CreateSession = ({ navigation }: any) => {
         setSkillLevelReq([...copySkillLevelReq]);
     }
 
+    const applyFilter = (index) => {
+        let filterList = filters
+        filterList[index].active = !filterList[index].active
+        setFilters([...filterList]);
+    }
     return (
         <SafeAreaView>
             <ScrollView contentContainerStyle={styles.containcont} showsVerticalScrollIndicator={false} >
@@ -88,7 +94,7 @@ const CreateSession = ({ navigation }: any) => {
 
                 <View style={styles.listContainer}>
                     <Text style={styles.subheading}>Sports</Text>
-                    <SportsList navigation={navigation} list={list} />
+                    <SportsList navigation={navigation} filterFunction={(ind) => applyFilter(ind)} list={filters} />
                     <Text style={styles.subheading}>Date</Text>
 
                     <DatePicker />
@@ -96,11 +102,8 @@ const CreateSession = ({ navigation }: any) => {
                         <Text style={styles.subheading}>Time</Text>
                         <Text style={styles.subheadinggreen}>(Possible play time between)</Text>
                     </View>
-
                     <TimePicker />
-
                     <Text style={styles.subheading}>Location</Text>
-
                     <TouchableOpacity style={styles.addlocationview}>
                         <TextInput style={styles.textinputlocation} placeholder={'Add the Session Location'} placeholderTextColor={'#A7A9BC'} />
                         <View style={styles.iconview}>
@@ -181,9 +184,9 @@ const CreateSession = ({ navigation }: any) => {
 
                     <Text style={styles.subheading}>Description</Text>
 
-                    <TextInput multiline={true} style={{ marginHorizontal: 15, marginVertical: 10, paddingLeft: 10, borderRadius: 10, backgroundColor: '#FFF', borderWidth: 1, borderColor: '#F5F6F8' }} placeholder={' Example: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type.'} placeholderTextColor={'#A7A9BC'} />
+                    <TextInput textAlignVertical={'top'} multiline={true} style={{ marginHorizontal: 15, marginVertical: 10, paddingLeft: 10, borderRadius: 10, backgroundColor: '#FFF', borderWidth: 1, borderColor: '#F5F6F8' }} placeholder={' Example: Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type.'} placeholderTextColor={'#A7A9BC'} />
 
-                    <TouchableOpacity style={{ borderRadius: 10, justifyContent: 'center', alignItems: 'center', padding: 10, marginHorizontal: 15, backgroundColor: '#0078FF' }}>
+                    <TouchableOpacity style={{ borderRadius: 20, justifyContent: 'center', alignItems: 'center', padding: 10, marginHorizontal: 15, backgroundColor: '#0078FF' }}>
                         <Text style={{ color: '#FFF', fontSize: 20 }}>Create Session</Text>
                     </TouchableOpacity>
 
